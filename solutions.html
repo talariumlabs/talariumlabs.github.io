@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talarium Labs</title>
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <style>
+      /* Keep images responsive and nicely cropped on wide screens */
+      .hero-media img { width: 100%; height: auto; display: block; }
+      @media screen and (min-width: 1024px) {
+        .hero-media img { height: 75vh; object-fit: cover; }
+      }
+      .brand-logo { height: 84px; width: 84px; }
+      .navbar .navbar-item .brand-logo {
+          max-height: none;
+      }
+      .brand-name {
+          font-size: 2rem;
+          line-height: 1;
+      }
+      .page-footer { font-size: 0.95rem; }
+
+
+      /* Make <summary> look like a clickable header */
+.accordion details { transition: box-shadow .2s ease; }
+.accordion details[open] { box-shadow: 0 6px 18px rgba(10,10,10,.08); }
+.accordion summary { cursor: pointer; list-style: none; }
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "▾"; float: right; transition: transform .2s ease;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+
+
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html" aria-label="Talarium Labs home">
+            <img src="white-128.png" alt="Talarium Labs logo" class="brand-logo" />
+            <span class="ml-2 has-text-weight-semibold brand-name">Talarium Labs</span>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="mainNavbar" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="./meet.html">About</a>
+            <a class="navbar-item" href="./solutions.html">Solutions</a>
+            <a class="navbar-item" href="#ng911-apis">NG911 APIs</a>
+            <a class="navbar-item" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="content">
+      <h1 class="title is-3">Solutions</h1>
+      <p class="subtitle is-5">We can provide a range of tailored solutions and concentrate on the following areas.</p>
+    </div>
+
+    <div class="accordion">
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">TAK Integrations</summary>
+        <div class="content mt-3">
+          <p>TAK is a leading platform for real-time situational awareness developed by the U.S. military. We build secure, custom connectors between TAK and external systems (CAD, sensors, AVL, NG9-1-1 data), with attention to authentication, access control, and degraded-network operation.</p>
+          <p class="has-text-weight-semibold is-size-6">Read more:</p>
+          <ul>
+            <li>Data bridging (CoT/JSON) with filtering and redaction policies.</li>
+            <li>Gateway services for on-prem, cloud, or field-deployable kits.</li>
+            <li>Operational hardening: TLS, cert lifecycle, and key management.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">9-1-1 Testing</summary>
+        <div class="content mt-3">
+          <p>We execute formal test suites (including Texas A&amp;M CACN) to validate interfaces and workflows. You get reproducible runs, actionable failure reports, and remediation guidance to reach compliance and interoperability goals.</p>
+          <p class="has-text-weight-semibold is-size-6">Read more:</p>
+          <ul>
+            <li>Test planning, harness setup, and environment capture.</li>
+            <li>Automated runs with artifacts: logs, pcap traces, and summaries.</li>
+            <li>Gap analysis and prioritized fixes to pass required cases.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">Security Consulting</summary>
+        <div class="content mt-3">
+          <p>We provide practical cybersecurity guidance and hands-on training focused on public-safety operations: identity, device trust, and least-privilege access that won’t slow the job down.</p>
+          <p class="has-text-weight-semibold is-size-6">Read more:</p>
+          <ul>
+            <li>PIV/CAC onboarding, certificate management, and MFA patterns.</li>
+            <li>Password policy, role-based access control, and audit readiness.</li>
+            <li>Network segmentation and incident response tabletop exercises.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">And more...</summary>
+        <div class="content mt-3">
+          <p>
+            We’re happy to sit down and discuss anything that helps your agency maintain resilient, reliable, and secure communications. We can meet online or, within 100 or so miles of Tallahassee, we can meet in person.
+          </p>
+          <p class="has-text-weight-semibold is-size-6">Read more:</p>
+          <ul>
+            <li>Resilience reviews for bad-network days and disaster posture.</li>
+            <li>Vendor-neutral integration roadmaps and pilot projects.</li>
+            <li>Training for staff on new workflows and operational playbooks.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer class="footer page-footer">
+      <div class="content has-text-centered">
+        <p>
+          © <span id="year"></span> Talarium Labs, Inc. · Built with
+          <a href="https://bulma.io/" rel="noopener" target="_blank">Bulma</a> ·
+          <a id="ng911-apis" href="#ng911-apis">NG911 APIs</a>
+        </p>
+        <p>
+          <a href="mailto:contact@talariumlabs.com">contact@talariumlabs.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Bulma burger menu toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.getElementById(burger?.dataset.target || '');
+        burger?.addEventListener('click', () => {
+          burger.classList.toggle('is-active');
+          menu?.classList.toggle('is-active');
+        });
+        // Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+      });
+    </script>
+    <script>
+  document.addEventListener('click', e => {
+    if (e.target.closest('.accordion summary')) {
+      const current = e.target.closest('details');
+      document.querySelectorAll('.accordion details[open]').forEach(d => {
+        if (d !== current) d.removeAttribute('open');
+      });
+    }
+  });
+</script>
+  </body>
+</html>

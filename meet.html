@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talarium Labs</title>
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <style>
+      /* Keep images responsive and nicely cropped on wide screens */
+      .hero-media img { width: 100%; height: auto; display: block; }
+      @media screen and (min-width: 1024px) {
+        .hero-media img { height: 75vh; object-fit: cover; }
+      }
+      .brand-logo { height: 84px; width: 84px; }
+      .navbar .navbar-item .brand-logo {
+          max-height: none;
+      }
+      .brand-name {
+          font-size: 2rem;
+          line-height: 1;
+      }
+      .page-footer { font-size: 0.95rem; }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html" aria-label="Talarium Labs home">
+            <img src="white-128.png" alt="Talarium Labs logo" class="brand-logo" />
+            <span class="ml-2 has-text-weight-semibold brand-name">Talarium Labs</span>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="mainNavbar" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="./meet.html">About</a>
+            <a class="navbar-item" href="./solutions.html">Solutions</a>
+            <a class="navbar-item" href="#ng911-apis">NG911 APIs</a>
+            <a class="navbar-item" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section" id="about">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-12-tablet is-8-desktop">
+        <div class="content">
+          <h1 class="title is-3">Meet the Founder</h1>
+          <p>I founded Talarium Labs after completing a PhD in Computer Science at the University of Pennsylvania. I also hold an MSc in Computer Science from the University of Oxford and a BS in Mathematics from Florida State University. My research focuses on building systems that are correct, reliable, and durable under stress. Now, Talarium is bringing that same mindset to emergency communication.</p>
+
+          <p>
+            I participate actively in NG911 standardization and serve on the following groups:</p>
+          <ul>
+            <li>NG911 Interoperability Task Force</li>
+            <li>NENA Futurists Committee</li>
+            <li>NENA i3 Architecture Working Group</li>
+            <li>NENA Interface Specification Development Working Group</li>
+            <li>NENA Emergency Incident Data Object Conveyance Working Group</li>
+            <li>APCO Automated Secure Alarm Protocol (ASAP-to-PSAP) Working Group</li>
+          </ul>
+          <p>I live and work in North Florida and spend time in EOCs and PSAPs to understand what works and what breaks in the field.</p>
+
+          <p><em>As of September 2025, I'm conducting interviews with public safety leaders in the region to understand local technological needs. If you would be interested in meeting to discuss your agency's needs and experience, reach out and let's meet.</em></p>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer page-footer">
+      <div class="content has-text-centered">
+        <p>
+          © <span id="year"></span> Talarium Labs, Inc. · Built with
+          <a href="https://bulma.io/" rel="noopener" target="_blank">Bulma</a> ·
+          <a id="ng911-apis" href="#ng911-apis">NG911 APIs</a>
+        </p>
+        <p>
+          <a href="mailto:contact@talariumlabs.com">contact@talariumlabs.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Bulma burger menu toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.getElementById(burger?.dataset.target || '');
+        burger?.addEventListener('click', () => {
+          burger.classList.toggle('is-active');
+          menu?.classList.toggle('is-active');
+        });
+        // Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>
