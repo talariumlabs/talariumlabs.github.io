@@ -1,14 +1,28 @@
-
-    <section class="section" id="about">
+<section class="section" id="founder">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-12-tablet is-8-desktop">
+    <div class="columns is-vcentered is-variable is-6">
+      <!-- Headshot -->
+      <div class="column is-12-mobile is-4-desktop">
+        <figure class="image founder-portrait">
+          <img
+            src="/assets/img/founder-320.jpg"
+            srcset="/assets/img/founder-320.jpg 320w,
+                    /assets/img/founder-640.jpg 640w,
+                    /assets/img/founder-960.jpg 960w"
+            sizes="(max-width: 768px) 50vw, (max-width: 1215px) 33vw, 28vw"
+            alt="Lawrence Dunn — Founder of Talarium Labs"
+            loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <!-- Text -->
+      <div class="column is-12-mobile is-8-desktop">
         <div class="content">
           <h1 class="title is-3">Meet the Founder</h1>
           <p>I founded Talarium Labs after completing a PhD in Computer Science at the University of Pennsylvania. I also hold an MSc in Computer Science from the University of Oxford and a BS in Mathematics from Florida State University. My research focuses on building systems that are correct, reliable, and durable under stress. Now, Talarium is bringing that same mindset to emergency communication.</p>
 
           <p>
-            I participate actively in NG911 standardization and serve on the following groups:</p>
+            I participate actively in NG911 standardization as a member of these groups:</p>
           <ul>
             <li>NG911 Interoperability Task Force</li>
             <li>NENA Futurists Committee</li>
@@ -18,9 +32,18 @@
             <li>APCO Automated Secure Alarm Protocol (ASAP-to-PSAP) Working Group</li>
           </ul>
           <p>I live and work in North Florida and spend time in EOCs and PSAPs to understand what works and what breaks in the field.</p>
-
-          <p><em>As of September 2025, I'm conducting interviews with public safety leaders in the region to understand local technological needs. If you would be interested in meeting to discuss your agency's needs and experience, reach out and let's meet.</em></p>
+        </div>
+        <div class="founder-signature" aria-label="Signature">
+          <span class="sig-line">
+            <span class="sig-mark">—</span>
+            <span class="sig-name">Lawrence Dunn</span>
+          </span>
+          <span class="sig-role">Founder, Talarium Labs</span>
+        </div>
+        <div class="founder-postscript">
+          <p><em>P.S.—As of September 2025, I'm conducting interviews with public safety leaders in the region to understand local technological needs. If you would be interested in meeting to discuss your agency's needs and experience, reach out and let's meet.</em></p>
         </div>
       </div>
     </div>
-    </section>
+  </div>
+</section>

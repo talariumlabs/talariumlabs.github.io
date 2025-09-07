@@ -1,22 +1,22 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>$siteTitle$$if(title)$$title$ · $endif$</title>
+  <title>$siteTitle$ · $if(title)$$title$$endif$</title>
 
   <!-- Bulma: either local or CDN -->
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Favicon: modern + fallback -->
-  <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="alternate icon" href="./icons/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="shortcut icon" href="./icons/favicon.ico"> <!-- legacy catch-all -->
+  <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="alternate icon" href="/assets/icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico"> <!-- legacy catch-all -->
 
   <!-- Apple touch icon -->
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" sizes="180x180">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" sizes="180x180">
 
   <!-- PWA manifest -->
-  <link rel="manifest" href="./site.webmanifest">
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#2554d9">
 
   <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
@@ -89,6 +89,76 @@
     }
     .accordion details[open] summary::after { transform: rotate(180deg); }
 
+    .founder-portrait { max-width: 260px; margin: 0 auto; }
+    .founder-portrait img {
+        width: 100%; height: auto; display: block;
+        border-radius: 50%;                 /* circle */
+        object-fit: cover; object-position: 50% 35%;
+        box-shadow: 0 10px 30px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.10);
+    }
+    @media (min-width: 1024px) {
+        .founder-portrait { max-width: 300px; }
+    }
+
+
+    /* NEW: soft halo behind the portrait (independent of the img) */
+    .founder-portrait { position: relative; max-width: 300px; margin: 0 auto; }
+    .founder-portrait::before {
+        content: "";
+        position: absolute; inset: -6% -6% -4% -6%;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(0,0,0,.98), rgba(0,0,0,0) 70%);
+        filter: blur(10px);          /* feather the glow */
+        z-index: 0;                  /* below the img */
+    }
+    .founder-portrait img { position: relative; z-index: 1; }
+
+    /* Signature block */
+    .founder-signature {
+        margin-top: 1.25rem;
+        color: #6b7280;            /* neutral gray; inherits in dark mode if you swap */
+        text-align: center;        /* centered by default; see desktop tweak below */
+        font-size: 0.95rem;
+    }
+
+    /* Short decorative rule above the name */
+    .founder-signature .sig-rule {
+        display: inline-block;
+        width: 72px;
+        height: 2px;
+        background: currentColor;
+        opacity: 0.25;
+        border-radius: 2px;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Name line */
+    .founder-signature .sig-line {
+        display: block;
+        line-height: 1.2;
+        margin-top: 0.15rem;
+    }
+    .founder-signature .sig-mark { margin-right: 0.4rem; }
+    .founder-signature .sig-name { font-weight: 600; letter-spacing: 0.01em; }
+
+    /* Role on its own line, slightly softer */
+    .founder-signature .sig-role {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.15rem;
+    }
+
+
+    /* Name line */
+    .founder-postscript {
+        display: block;
+        margin-top: 1.15rem;
+    }
+    /* Optional: align with the text column on desktop (when headshot sits left/right) */
+    @media (min-width: 1024px) {
+    #founder .founder-signature { text-align: left; }
+}
 
   </style>
 </head>
