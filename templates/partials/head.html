@@ -1,0 +1,94 @@
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>$siteTitle$$if(title)$$title$ · $endif$</title>
+
+  <!-- Bulma: either local or CDN -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon: modern + fallback -->
+  <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="alternate icon" href="./icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="shortcut icon" href="./icons/favicon.ico"> <!-- legacy catch-all -->
+
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" sizes="180x180">
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#2554d9">
+
+  <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+
+  <!-- Bulma CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+  <style>
+    /* Keep images responsive and nicely cropped on wide screens */
+    .hero-media img { width: 100%; height: auto; display: block; }
+    @media screen and (min-width: 1024px) {
+        .hero-media img { height: 75vh; object-fit: cover; object-position: 0% 0%; }
+    }
+    .brand-logo { height: 84px; width: 84px; }
+    .navbar .navbar-item .brand-logo {
+        max-height: none;
+    }
+    .brand-name {
+        font-size: 2rem;
+        line-height: 1;
+    }
+    .page-footer { font-size: 0.95rem; }
+    .image-frame {
+        border-radius: 8px;
+        overflow: hidden;               /* keeps the image corners rounded */
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .gradient-mask { position: relative; }
+
+    .gradient-mask::after {
+        content: "";
+        position: absolute; inset: 0;
+        pointer-events: none;
+    }
+
+    /* Desktop: left→right gradient (good when text is on right) */
+    @media (min-width: 1024px) {
+        .gradient-mask::after {
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0.0) 0%,
+                rgba(0,0,0,0.3) 50%,
+                rgba(0,0,0,0.6) 90%
+            );
+        }
+    }
+
+    /* Mobile: bottom→top gradient (text often below image) */
+    @media (max-width: 1023.98px) {
+        .gradient-mask::after {
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.35) 0%,
+                rgba(0,1.0,0,0.00) 55%
+            );
+        }
+    }
+
+
+    /* Make <summary> look like a clickable header */
+    .accordion details { transition: box-shadow .2s ease; }
+    .accordion details[open] { box-shadow: 0 6px 18px rgba(10,10,10,.08); }
+    .accordion summary { cursor: pointer; list-style: none; }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion summary::after {
+        content: "▾"; float: right; transition: transform .2s ease;
+    }
+    .accordion details[open] summary::after { transform: rotate(180deg); }
+
+
+  </style>
+</head>

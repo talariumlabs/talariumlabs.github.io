@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talarium Labs</title>
+    <!-- Favicon: modern + fallback -->
+    <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="alternate icon" href="./icons/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="shortcut icon" href="./icons/favicon.ico"> <!-- legacy catch-all -->
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" sizes="180x180">
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="theme-color" content="#2554d9">
+
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <style>
+      /* Keep images responsive and nicely cropped on wide screens */
+      .hero-media img { width: 100%; height: auto; display: block; }
+      @media screen and (min-width: 1024px) {
+          .hero-media img { height: 75vh; object-fit: cover; object-position: 0% 0%; }
+      }
+      .brand-logo { height: 84px; width: 84px; }
+      .navbar .navbar-item .brand-logo {
+          max-height: none;
+      }
+      .brand-name {
+          font-size: 2rem;
+          line-height: 1;
+      }
+      .page-footer { font-size: 0.95rem; }
+      .image-frame {
+          border-radius: 8px;
+          overflow: hidden;               /* keeps the image corners rounded */
+          box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
+      }
+      .gradient-mask { position: relative; }
+
+.gradient-mask::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+/* Desktop: left→right gradient (good when text is on right) */
+@media (min-width: 1024px) {
+  .gradient-mask::after {
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.0) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.6) 90%
+    );
+  }
+}
+
+/* Mobile: bottom→top gradient (text often below image) */
+@media (max-width: 1023.98px) {
+  .gradient-mask::after {
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.35) 0%,
+      rgba(0,1.0,0,0.00) 55%
+    );
+  }
+}
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html" aria-label="Talarium Labs home">
+            <img src="white-128.png" alt="Talarium Labs logo" class="brand-logo" />
+            <span class="ml-2 has-text-weight-semibold brand-name">Talarium Labs</span>
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="mainNavbar" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="./meet.html">About</a>
+            <a class="navbar-item" href="./solutions">Solutions</a>
+            <a class="navbar-item" href="#ng911-apis">NG911 APIs</a>
+            <a class="navbar-item" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO / MAIN -->
+    <section class="section pt-5 pb-6">
+      <div class="container">
+        <div class="columns is-vcentered is-variable is-6">
+          <!-- Left: Image (dominant on desktop) -->
+          <div class="column is-12-tablet is-7-desktop hero-media">
+            <!-- Use srcset for responsive images. Provide the listed files; see notes below. -->
+            <div class="image-frame gradient-mask">
+              <picture>
+                <!-- Optional modern formats if you provide them
+                     <source srcset="code-768w.avif 768w, code-1280w.avif 1280w, code-1920w.avif 1920w" type="image/avif" />
+                     <source srcset="code-768w.webp 768w, code-1280w.webp 1280w, code-1920w.webp 1920w" type="image/webp" />
+                     -->
+                     <img
+                       src="code.png"
+                       sizes="(max-width: 768px) 100vw, (max-width: 1215px) 60vw, 65vw"
+                       alt="Engineers integrating NG9-1-1 systems — code and networks on screen"
+                       loading="lazy"
+                       decoding="async"
+                       />
+              </picture>
+            </div>
+          </div>
+
+          <!-- Right: Text -->
+          <div class="column is-12-tablet is-5-desktop">
+            <div class="content">
+              <h1 class="title is-3">Practical Interoperability for Public Safety</h1>
+              <p>
+                Talarium Labs, Inc. is a small, hands-on engineering company focused on one thing: making emergency communications work reliably across agencies, vendors, and bad network days. We design and test practical integrations for NG9-1-1 and emergency management to make sure the right information gets to the right people at the right time. We support interoperable standards set by organizations such as NENA and APCO. We also know that every agency is different and tailor our solutions to your unique needs.
+              </p>
+              <div class="buttons mt-5">
+                <a id="about" class="button is-link is-light" href="./meet.html">Learn more</a>
+                <a id="contact" class="button is-link" href="#contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer page-footer">
+      <div class="content has-text-centered">
+        <p>
+          © <span id="year"></span> Talarium Labs, Inc. · Built with
+          <a href="https://bulma.io/" rel="noopener" target="_blank">Bulma</a> ·
+          <a id="ng911-apis" href="#ng911-apis">NG911 APIs</a>
+        </p>
+        <p>
+          <a href="mailto:contact@talariumlabs.com">contact@talariumlabs.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Bulma burger menu toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.getElementById(burger?.dataset.target || '');
+        burger?.addEventListener('click', () => {
+          burger.classList.toggle('is-active');
+          menu?.classList.toggle('is-active');
+        });
+        // Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>
