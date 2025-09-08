@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talarium Labs · Solutions</title>
+
+  <!-- Bulma: either local or CDN -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon: modern + fallback -->
+  <link rel="icon" href="./assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="alternate icon" href="./assets/icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico"> <!-- legacy catch-all -->
+
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" sizes="180x180">
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#2554d9">
+
+  <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
+  <style>
+    /* Keep images responsive and nicely cropped on wide screens */
+    .hero-media img { width: 100%; height: auto; display: block; }
+    @media screen and (min-width: 1024px) {
+        .hero-media img { height: 75vh; object-fit: cover; object-position: 0% 0%; }
+    }
+    .brand-logo { height: 84px; width: 84px; }
+    .navbar .navbar-item .brand-logo {
+        max-height: none;
+    }
+    .brand-name {
+        font-size: 2rem;
+        line-height: 1;
+    }
+    .page-footer { font-size: 0.95rem; }
+    .image-frame {
+        border-radius: 8px;
+        overflow: hidden;               /* keeps the image corners rounded */
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .gradient-mask { position: relative; }
+
+    .gradient-mask::after {
+        content: "";
+        position: absolute; inset: 0;
+        pointer-events: none;
+    }
+
+    /* Desktop: left→right gradient (good when text is on right) */
+    @media (min-width: 1024px) {
+        .gradient-mask::after {
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0.0) 0%,
+                rgba(0,0,0,0.3) 50%,
+                rgba(0,0,0,0.6) 90%
+            );
+        }
+    }
+
+    /* Mobile: bottom→top gradient (text often below image) */
+    @media (max-width: 1023.98px) {
+        .gradient-mask::after {
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.35) 0%,
+                rgba(0,1.0,0,0.00) 55%
+            );
+        }
+    }
+
+
+    /* Make <summary> look like a clickable header */
+    .accordion details { transition: box-shadow .2s ease; }
+    .accordion details[open] { box-shadow: 0 6px 18px rgba(10,10,10,.08); }
+    .accordion summary { cursor: pointer; list-style: none; }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion summary::after {
+        content: "▾"; float: right; transition: transform .2s ease;
+    }
+    .accordion details[open] summary::after { transform: rotate(180deg); }
+
+    .founder-portrait { max-width: 260px; margin: 0 auto; }
+    .founder-portrait img {
+        width: 100%; height: auto; display: block;
+        border-radius: 50%;                 /* circle */
+        object-fit: cover; object-position: 50% 35%;
+        box-shadow: 0 10px 30px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.10);
+    }
+    @media (min-width: 1024px) {
+        .founder-portrait { max-width: 300px; }
+    }
+
+
+    /* NEW: soft halo behind the portrait (independent of the img) */
+    .founder-portrait { position: relative; max-width: 300px; margin: 0 auto; }
+    .founder-portrait::before {
+        content: "";
+        position: absolute; inset: -6% -6% -4% -6%;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(0,0,0,.98), rgba(0,0,0,0) 70%);
+        filter: blur(10px);          /* feather the glow */
+        z-index: 0;                  /* below the img */
+    }
+    .founder-portrait img { position: relative; z-index: 1; }
+
+    /* Signature block */
+    .founder-signature {
+        margin-top: 1.25rem;
+        color: #6b7280;            /* neutral gray; inherits in dark mode if you swap */
+        text-align: center;        /* centered by default; see desktop tweak below */
+        font-size: 0.95rem;
+    }
+
+    /* Short decorative rule above the name */
+    .founder-signature .sig-rule {
+        display: inline-block;
+        width: 72px;
+        height: 2px;
+        background: currentColor;
+        opacity: 0.25;
+        border-radius: 2px;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Name line */
+    .founder-signature .sig-line {
+        display: block;
+        line-height: 1.2;
+        margin-top: 0.15rem;
+    }
+    .founder-signature .sig-mark { margin-right: 0.4rem; }
+    .founder-signature .sig-name { font-weight: 600; letter-spacing: 0.01em; }
+
+    /* Role on its own line, slightly softer */
+    .founder-signature .sig-role {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.15rem;
+    }
+
+
+    /* Name line */
+    .founder-postscript {
+        display: block;
+        margin-top: 1.15rem;
+    }
+    /* Optional: align with the text column on desktop (when headshot sits left/right) */
+    @media (min-width: 1024px) {
+    #founder .founder-signature { text-align: left; }
+}
+
+  </style>
+</head>
+
+  <body>
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html" aria-label="Talarium Labs home">
+        <img src="./assets/img/clear-192.png" alt="Talarium Labs logo" class="brand-logo" />
+        <span class="ml-2 has-text-weight-semibold brand-name">Talarium Labs</span>
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="mainNavbar" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="./about.html">About</a>
+        <a class="navbar-item" href="./solutions.html">Solutions</a>
+        <a class="navbar-item" href="./ng911-apis.html">NG911 APIs</a>
+        <a class="navbar-item" href="./contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const b = document.querySelector('.navbar-burger');
+  const m = document.getElementById(b?.dataset.target || 'mainNavbar');
+  b?.addEventListener('click', () => { b.classList.toggle('is-active'); m?.classList.toggle('is-active'); });
+});
+</script>
+
+
+    <main>
+      <section class="section" id="solutions">
+  <div class="container">
+    <div class="content">
+      <h1 class="title is-3">Solutions</h1>
+      <p class="subtitle is-5">We can provide a range of tailored solutions and concentrate on the following areas.</p>
+    </div>
+
+    <div class="accordion">
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">TAK Integrations</summary>
+        <div class="content mt-3">
+          <p>TAK is a leading platform for real-time situational awareness developed by the U.S. military. We build secure, custom connectors between TAK and external systems (CAD, sensors, AVL, NG9-1-1 data), with attention to authentication, access control, and degraded-network operation.</p>
+          <p class="has-text-weight-semibold is-size-6">Services:</p>
+          <ul>
+            <li>Data bridging (CoT/JSON) with filtering and redaction policies.</li>
+            <li>Gateway services for on-prem, cloud, or field-deployable kits.</li>
+            <li>Operational hardening: TLS, cert lifecycle, and key management.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">9-1-1 Testing</summary>
+        <div class="content mt-3">
+          <p>We execute formal test suites (including Texas A&amp;M CACN) to validate interfaces and workflows. You get reproducible runs, actionable failure reports, and remediation guidance to reach compliance and interoperability goals.</p>
+          <p class="has-text-weight-semibold is-size-6">Services:</p>
+          <ul>
+            <li>Test planning, harness setup, and environment capture.</li>
+            <li>Automated runs with artifacts: logs, pcap traces, and summaries.</li>
+            <li>Gap analysis and prioritized fixes to pass required cases.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">Security Consulting</summary>
+        <div class="content mt-3">
+          <p>We provide practical cybersecurity guidance and hands-on training focused on public-safety operations: identity, device trust, and least-privilege access that won’t slow the job down.</p>
+          <p class="has-text-weight-semibold is-size-6">Services:</p>
+          <ul>
+            <li>PIV/CAC onboarding, certificate management, and MFA patterns.</li>
+            <li>Password policy, role-based access control, and audit readiness.</li>
+            <li>Network segmentation and incident response tabletop exercises.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="box">
+        <summary class="is-size-5 has-text-weight-semibold">And more...</summary>
+        <div class="content mt-3">
+          <p>
+            We’re happy to sit down and discuss anything that helps your agency maintain resilient, reliable, and secure communications. We can meet online or in person within 100 or so miles of Tallahassee, FL.
+          </p>
+          <p class="has-text-weight-semibold is-size-6">Services:</p>
+          <ul>
+            <li>Resilience reviews for bad-network days and disaster posture.</li>
+            <li>Vendor-neutral integration roadmaps and pilot projects.</li>
+            <li>Training for staff on new workflows and operational playbooks.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p>© <span id="year"></span> Talarium Labs, Inc. · Built with Hakyll + Bulma</p>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+  </body>
+</html>
