@@ -34,130 +34,159 @@
     }
     .brand-logo { height: 84px; width: 84px; }
     .navbar .navbar-item .brand-logo {
-        max-height: none;
+    max-height: none;
     }
     .brand-name {
-        font-size: 2rem;
-        line-height: 1;
+    font-size: 2rem;
+    line-height: 1;
     }
     .page-footer { font-size: 0.95rem; }
     .image-frame {
-        border-radius: 8px;
-        overflow: hidden;               /* keeps the image corners rounded */
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    overflow: hidden;               /* keeps the image corners rounded */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
     }
     .gradient-mask { position: relative; }
 
     .gradient-mask::after {
-        content: "";
-        position: absolute; inset: 0;
-        pointer-events: none;
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
     }
 
     /* Desktop: left→right gradient (good when text is on right) */
     @media (min-width: 1024px) {
-        .gradient-mask::after {
-            background: linear-gradient(
-                to right,
-                rgba(0,0,0,0.0) 0%,
-                rgba(0,0,0,0.3) 50%,
-                rgba(0,0,0,0.6) 90%
-            );
-        }
+    .gradient-mask::after {
+    background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.0) 0%,
+    rgba(0,0,0,0.3) 50%,
+    rgba(0,0,0,0.6) 90%
+    );
+    }
     }
 
     /* Mobile: bottom→top gradient (text often below image) */
     @media (max-width: 1023.98px) {
-        .gradient-mask::after {
-            background: linear-gradient(
-                to top,
-                rgba(0,0,0,0.35) 0%,
-                rgba(0,1.0,0,0.00) 55%
-            );
-        }
+    .gradient-mask::after {
+    background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,1.0,0,0.00) 55%
+    );
+    }
     }
 
 
     /* Make <summary> look like a clickable header */
-    .accordion details { transition: box-shadow .2s ease; }
-    .accordion details[open] { box-shadow: 0 6px 18px rgba(10,10,10,.08); }
-    .accordion summary { cursor: pointer; list-style: none; }
-    .accordion summary::-webkit-details-marker { display: none; }
-    .accordion summary::after {
-        content: "▾"; float: right; transition: transform .2s ease;
-    }
-    .accordion details[open] summary::after { transform: rotate(180deg); }
+      .accordion details { transition: box-shadow .2s ease; }
+      .accordion details[open] { box-shadow: 0 6px 18px rgba(10,10,10,.08); }
+      .accordion summary { cursor: pointer; list-style: none; }
+      .accordion summary::-webkit-details-marker { display: none; }
+      .accordion summary::after {
+      content: "▾"; float: right; transition: transform .2s ease;
+      }
+      .accordion details[open] summary::after { transform: rotate(180deg); }
 
-    .founder-portrait { max-width: 260px; margin: 0 auto; }
-    .founder-portrait img {
-        width: 100%; height: auto; display: block;
-        border-radius: 50%;                 /* circle */
-        object-fit: cover; object-position: 50% 35%;
-        box-shadow: 0 10px 30px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.10);
-    }
-    @media (min-width: 1024px) {
-        .founder-portrait { max-width: 300px; }
-    }
-
-
-    /* NEW: soft halo behind the portrait (independent of the img) */
-    .founder-portrait { position: relative; max-width: 300px; margin: 0 auto; }
-    .founder-portrait::before {
-        content: "";
-        position: absolute; inset: -6% -6% -4% -6%;
-        border-radius: 50%;
-        background: radial-gradient(closest-side, rgba(0,0,0,.98), rgba(0,0,0,0) 70%);
-        filter: blur(10px);          /* feather the glow */
-        z-index: 0;                  /* below the img */
-    }
-    .founder-portrait img { position: relative; z-index: 1; }
-
-    /* Signature block */
-    .founder-signature {
-        margin-top: 1.25rem;
-        color: #6b7280;            /* neutral gray; inherits in dark mode if you swap */
-        text-align: center;        /* centered by default; see desktop tweak below */
-        font-size: 0.95rem;
-    }
-
-    /* Short decorative rule above the name */
-    .founder-signature .sig-rule {
-        display: inline-block;
-        width: 72px;
-        height: 2px;
-        background: currentColor;
-        opacity: 0.25;
-        border-radius: 2px;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Name line */
-    .founder-signature .sig-line {
-        display: block;
-        line-height: 1.2;
-        margin-top: 0.15rem;
-    }
-    .founder-signature .sig-mark { margin-right: 0.4rem; }
-    .founder-signature .sig-name { font-weight: 600; letter-spacing: 0.01em; }
-
-    /* Role on its own line, slightly softer */
-    .founder-signature .sig-role {
-        display: block;
-        font-size: 0.9rem;
-        opacity: 0.8;
-        margin-top: 0.15rem;
-    }
+      .founder-portrait { max-width: 260px; margin: 0 auto; }
+      .founder-portrait img {
+      width: 100%; height: auto; display: block;
+      border-radius: 50%;                 /* circle */
+      object-fit: cover; object-position: 50% 35%;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.10);
+      }
+      @media (min-width: 1024px) {
+      .founder-portrait { max-width: 300px; }
+      }
 
 
-    /* Name line */
-    .founder-postscript {
-        display: block;
-        margin-top: 1.15rem;
-    }
-    /* Optional: align with the text column on desktop (when headshot sits left/right) */
-    @media (min-width: 1024px) {
-    #founder .founder-signature { text-align: left; }
+      /* NEW: soft halo behind the portrait (independent of the img) */
+      .founder-portrait { position: relative; max-width: 300px; margin: 0 auto; }
+      .founder-portrait::before {
+      content: "";
+      position: absolute; inset: -6% -6% -4% -6%;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(0,0,0,.98), rgba(0,0,0,0) 70%);
+      filter: blur(10px);          /* feather the glow */
+      z-index: 0;                  /* below the img */
+      }
+      .founder-portrait img { position: relative; z-index: 1; }
+
+      /* Signature block */
+      .founder-signature {
+      margin-top: 1.25rem;
+      color: #6b7280;            /* neutral gray; inherits in dark mode if you swap */
+      text-align: center;        /* centered by default; see desktop tweak below */
+      font-size: 0.95rem;
+      }
+
+      /* Short decorative rule above the name */
+      .founder-signature .sig-rule {
+      display: inline-block;
+      width: 72px;
+      height: 2px;
+      background: currentColor;
+      opacity: 0.25;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+      }
+
+      /* Name line */
+      .founder-signature .sig-line {
+      display: block;
+      line-height: 1.2;
+      margin-top: 0.15rem;
+      }
+      .founder-signature .sig-mark { margin-right: 0.4rem; }
+      .founder-signature .sig-name { font-weight: 600; letter-spacing: 0.01em; }
+
+      /* Role on its own line, slightly softer */
+      .founder-signature .sig-role {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+      }
+
+
+      /* Name line */
+      .founder-postscript {
+      display: block;
+      margin-top: 1.15rem;
+      }
+      /* Optional: align with the text column on desktop (when headshot sits left/right) */
+      @media (min-width: 1024px) {
+      #founder .founder-signature { text-align: left; }
+      }
+
+
+      .contact-link { display:flex; align-items:center; gap:1rem; text-decoration:none; }
+      .contact-link .icon-wrap { flex:0 0 auto; width:3rem; height:3rem; border-radius:50%;
+      background: rgba(0,0,0,.06); display:flex; align-items:center; justify-content:center; }
+      .contact-link .icon { width:1.5rem; height:1.5rem; fill: currentColor; color:#111; }
+      .contact-link .contact-body { display:flex; flex-direction:column; }
+      .contact-link .contact-title { font-weight:600; }
+      .contact-link .contact-detail { color:#6b7280; font-size:.95rem; }
+
+      @media (prefers-color-scheme: dark) {
+      .contact-link .icon-wrap { background: rgba(255,255,255,.08); }
+      .contact-link .icon { color:#fff; }
+      .contact-link .contact-detail { color:#9ca3af; }
+      }
+
+      .icon-wrap { width:3rem; height:3rem; border-radius:50%;
+      background: rgba(0,0,0,.06); display:grid; place-items:center; }
+      .icon-img { width:1.5rem; height:1.5rem; display:block; }
+      @media (prefers-color-scheme: dark) {
+      .icon-wrap { background: rgba(255,255,255,.08); }
 }
+
+
+      .contact-link.linkedin .icon { color:#0A66C2; }   /* LinkedIn */
+      .contact-link.facebook .icon { color:#1877F2; }   /* Facebook */
+
+}
+
 
   </style>
 </head>
@@ -166,7 +195,7 @@
     <nav class="navbar is-white" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="./index.html" aria-label="Talarium Labs home">
+      <a class="navbar-item" href="./" aria-label="Talarium Labs home">
         <img src="./assets/img/clear-192.png" alt="Talarium Labs logo" class="brand-logo" />
         <span class="ml-2 has-text-weight-semibold brand-name">Talarium Labs</span>
       </a>
@@ -180,7 +209,7 @@
       <div class="navbar-end">
         <a class="navbar-item" href="./about.html">About</a>
         <a class="navbar-item" href="./solutions.html">Solutions</a>
-        <a class="navbar-item" href="./ng911-apis.html">NG911 APIs</a>
+        <a class="navbar-item" href="./docs.html">NG911 APIs</a>
         <a class="navbar-item" href="./contact.html">Contact Us</a>
       </div>
     </div>
@@ -219,11 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="content">
           <h1 class="title is-3">Practical Interoperability for Public Safety</h1>
           <p>
-            Talarium Labs, Inc. is a small, hands-on engineering company focused on one thing: making emergency communications work reliably across agencies, vendors, and bad network days. We design and test practical integrations for NG9-1-1 and emergency management to make sure the right information gets to the right people at the right time. We support interoperable standards set by industry-leading organizations such as NENA and APCO. We also know that every agency is different and tailor our solutions to your unique needs.
+            Talarium Labs, Inc. is a small, hands-on engineering company focused on one thing: making emergency communications work reliably across agencies, vendors, and bad network days. We design and test practical integrations for NG9-1-1 and emergency management to make sure the right information gets to the right people at the right time. We also know that every agency is different and tailor our solutions to your unique needs.
           </p>
           <div class="buttons mt-5">
             <a id="about" class="button is-link is-light" href="./about.html">Learn more</a>
-            <a id="contact" class="button is-link" href="#contact">Contact Us</a>
+            <a id="contact" class="button is-link" href="./contact.html">Contact Us</a>
           </div>
         </div>
       </div>

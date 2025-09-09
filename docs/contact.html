@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Talarium Labs · Solutions</title>
+  <title>Talarium Labs · Contact</title>
 
   <!-- Bulma: either local or CDN -->
 
@@ -225,84 +225,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     <main>
-      <section class="section" id="solutions">
+      <section class="section" id="contact">
   <div class="container">
-    <div class="content">
-      <h1 class="title is-3">Solutions</h1>
-      <p class="subtitle is-5">We can provide a range of tailored solutions and concentrate on the following areas.</p>
+    <div class="content has-text-centered">
+      <h1 class="title is-3">Get in touch</h1>
+      <p class="is-5">
+        We’re friendly engineers who love solving real problems. Whether you’re exploring NG9-1-1 integrations, need testing support, or just want to compare notes—reach out anytime.
+      </p>
     </div>
 
-    <div class="accordion">
-      <details class="box">
-        <summary class="is-size-5 has-text-weight-semibold">CAD Integrations</summary>
-        <div class="content mt-3">
-          <p>Is your vendor charging an arm and a leg for a custom integration? Dragging their feet to build what you need? Let our engineers take a look and we'll give you a quote. (Hint: We're most likely faster and cheaper, and we always pick up the phone.)
-          </p>
-          <p class="has-text-weight-semibold is-size-6">Services:</p>
-          <ul>
-            <li>CAD-to-CAD integrations — interagency incident/unit sharing and de-duplication.</li>
-            <li>CAD-to-Alert/Station systems — trigger tones, lights, bay doors (e.g., PURVIS, Zetron, Westnet).</li>
-            <li>CAD-to-AVL/MDT — Automatic Vehicle Location and mobile terminals; unit status and location sync.</li>
-            <li>CAD-to-Facilities/Access — doors, gates, and building systems (BMS) with audit and interlocks.</li>
-            <li>CAD-to-EOC/Dashboards — city/county situational awareness boards and common operating pictures.</li>
-            <li>CAD-to-Public/Partner Feeds — coarse-grained, rate-limited APIs for vetted partners or community apps.</li>
-            <li>CAD-to-Analytics/Warehouse — ETL for after-action reviews, QA, and performance reporting.</li>
-          </ul>
-        </div>
-      </details>
-      <details class="box">
-        <summary class="is-size-5 has-text-weight-semibold">TAK Plugins and Integrations</summary>
-        <div class="content mt-3">
-          <p>TAK is a leading platform for real-time situational awareness developed by the U.S. military. We build secure, custom connectors between TAK and external systems (CAD, sensors, AVL, NG9-1-1 data, and more), with attention to authentication, access control, and reliable operation.</p>
-          <p class="has-text-weight-semibold is-size-6">Services:</p>
-          <ul>
-            <li>Data bridging (CoT/JSON) with filtering and redaction policies.</li>
-            <li>Gateway services for on-prem, cloud, or field-deployable kits.</li>
-            <li>Operational hardening: TLS, cert lifecycle, and key management.</li>
-          </ul>
-        </div>
-      </details>
+    <div class="columns is-multiline is-variable is-5">
+      <!-- Email -->
+      <div class="column is-12-tablet is-6-desktop">
+        <a class="box contact-link" href="mailto:hello@talariumlabs.com">
+          <span class="icon-wrap" aria-hidden="true">
+            <img class="icon-img" src="./assets/svg/mail.svg" alt />
+          </span>
+          <div class="contact-body">
+            <div class="contact-title">Email</div>
+            <div class="contact-detail">hello@talariumlabs.io</div>
+          </div>
+        </a>
+      </div>
 
-      <details class="box">
-        <summary class="is-size-5 has-text-weight-semibold">9-1-1 Testing</summary>
-        <div class="content mt-3">
-          <p>We execute formal test suites developed by Texas A&amp;M CACN to validate interfaces and workflows. You get reproducible runs, actionable failure reports, and remediation guidance to reach compliance and interoperability goals.</p>
-          <p class="has-text-weight-semibold is-size-6">Services:</p>
-          <ul>
-            <li>Test planning, harness setup, and environment capture.</li>
-            <li>Automated runs with artifacts: logs, pcap traces, and summaries.</li>
-            <li>Gap analysis and prioritized fixes to pass required cases.</li>
-          </ul>
-        </div>
-      </details>
+      <!-- Phone -->
+      <div class="column is-12-tablet is-6-desktop">
+        <a class="box contact-link" href="tel:+1-000-000-0000">
+          <span class="icon-wrap" aria-hidden="true">
+            <img class="icon-img" src="./assets/svg/phone.svg" alt />
+          </span>
+          <div class="contact-body">
+            <div class="contact-title">Phone</div>
+            <div class="contact-detail">+1 ‪(850) 601-2773‬ </div>
+          </div>
+        </a>
+      </div>
 
-      <details class="box">
-        <summary class="is-size-5 has-text-weight-semibold">Security Consulting</summary>
-        <div class="content mt-3">
-          <p>We provide practical cybersecurity guidance and hands-on training focused on public-safety operations: identity, device trust, and least-privilege access that won’t slow the job down.</p>
-          <p class="has-text-weight-semibold is-size-6">Services:</p>
-          <ul>
-            <li>PIV/CAC onboarding, certificate management, and MFA patterns.</li>
-            <li>Password policy, role-based access control, and audit readiness.</li>
-            <li>Network segmentation and incident response tabletop exercises.</li>
-          </ul>
-        </div>
-      </details>
+      <!-- Facebook -->
+      <div class="column is-12-tablet is-6-desktop">
+        <a class="box contact-link" href="https://www.facebook.com/talariumlabs" target="_blank" rel="noopener">
+          <span class="icon-wrap" aria-hidden="true">
+            <!-- facebook icon -->
+            <img class="icon-img" src="./assets/svg/facebook.svg" alt />
+          </span>
+          <div class="contact-body">
+            <div class="contact-title">Facebook</div>
+            <div class="contact-detail">Company news and updates</div>
+          </div>
+        </a>
+      </div>
+    </div>
 
-      <details class="box">
-        <summary class="is-size-5 has-text-weight-semibold">And more...</summary>
-        <div class="content mt-3">
-          <p>
-            We’re happy to sit down and discuss anything that helps your agency maintain resilient, reliable, and secure communications. We can meet online or visit in person within ~100 miles of Tallahassee, FL.
-          </p>
-          <p class="has-text-weight-semibold is-size-6">Services:</p>
-          <ul>
-            <li>Resilience reviews for bad-network days and disaster posture.</li>
-            <li>Vendor-neutral integration roadmaps and pilot projects.</li>
-            <li>Training for staff on new workflows and operational playbooks.</li>
-          </ul>
-        </div>
-      </details>
+    <div class="has-text-centered mt-5">
+      <p class="is-size-6 has-text-grey">
+        Prefer old-fashioned email? That’s great. Need a quick answer? Call. We’re always happy to meet anywhere within 100 miles of Tallahassee.
+      </p>
     </div>
   </div>
 </section>
