@@ -1,0 +1,114 @@
+/* Minimal tweaks to make generated RFC pages pleasant. */
+.badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: .2rem 0 .6rem; }
+.badge { border: 1px solid var(--md-primary-fg-color--light); border-radius: 999px; padding: .1rem .6rem; font-size: .85em; }
+.badge.rep { background: rgba(59,130,246,.08); }
+.badge.acq { background: rgba(34,197,94,.10); }
+.badge.rte { background: rgba(234,179,8,.12); }
+.badge.conv { background: rgba(236,72,153,.10); }
+.badge.frm { background: rgba(99,102,241,.10); }
+.badge.priv { background: rgba(107,114,128,.14); }
+
+.rfc-card { border: 1px solid var(--md-default-fg-color--lightest); border-radius: .6rem; padding: 1rem; margin: 0 0 1rem; }
+.rfc-meta { font-size: .9em; color: var(--md-default-fg-color--light); }
+.artifacts { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: .9em; }
+
+
+
+/* Description lists: tidy, readable, responsive
+   Applies to any <dl> in article content; use .rfc-dl to opt-in explicitly if you prefer.
+*/
+.md-typeset dl,
+.md-content dl,
+dl.rfc-dl {
+  display: grid;
+  /* grid-template-columns: max-content 1fr; */ /* term column auto-sizes to longest dt */
+  grid-template-columns: 1fr;
+  gap: .25rem 1rem;                       /* row gap, column gap */
+  margin: 1rem 0;
+}
+
+.md-typeset dt,
+.md-content dt,
+dl.rfc-dl > dt {
+  margin: 0;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  /* subtle accent bar to the left of the term */
+  border-left: 3px solid var(--md-primary-fg-color);
+  padding-left: .5rem;
+  line-height: 1.3;
+  /* keep long terms from exploding layout */
+  word-break: break-word;
+}
+
+.md-typeset dd,
+.md-content dd,
+dl.rfc-dl > dd {
+  margin: 0 0 .35rem 0;  /* compact vertical rhythm per item */
+  color: var(--md-default-fg-color);
+}
+
+ /* Extra spacing between logical groups (dt followed by another dt) */
+.md-typeset dd + dt,
+.md-content dd + dt,
+dl.rfc-dl > dd + dt {
+  margin-top: .4rem;
+}
+
+/* When a definition has paragraphs/lists/code, space them nicely */
+.md-typeset dd > p:first-child,
+.md-content dd > p:first-child { margin-top: 0; }
+.md-typeset dd > p:last-child,
+.md-content dd > p:last-child { margin-bottom: 0; }
+
+.md-typeset dd code,
+.md-content dd code {
+  font-size: .85em;
+  padding: .05rem .3rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .25rem;
+}
+
+.md-typeset dd pre code,
+.md-content dd pre code { font-size: .9em; }
+
+ /* Optional “compact” variant: <dl class="rfc-dl compact"> */
+dl.rfc-dl.compact {
+  gap: .15rem .75rem;
+}
+dl.rfc-dl.compact > dt { border-left-width: 2px; padding-left: .4rem; }
+dl.rfc-dl.compact > dd { margin-bottom: .25rem; }
+
+/* Optional muted variant: <dl class="rfc-dl muted"> for secondary metadata */
+dl.rfc-dl.muted > dt { border-left-color: var(--md-default-fg-color--lightest); color: var(--md-default-fg-color--light); }
+dl.rfc-dl.muted > dd { color: var(--md-default-fg-color--light); }
+
+/* Horizontal rule style “rows” if you prefer lines between items:
+   Add class .rows to the <dl> to enable. */
+dl.rfc-dl.rows > dt,
+dl.rfc-dl.rows > dd {
+  padding-top: .5rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+dl.rfc-dl.rows > dt:first-of-type,
+dl.rfc-dl.rows > dt:first-of-type + dd {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Mobile: stack terms over definitions */
+@media (max-width: 640px) {
+  .md-typeset dl,
+  .md-content dl,
+  dl.rfc-dl {
+    grid-template-columns: 1fr;  /* single column */
+    gap: .15rem 0;
+  }
+  .md-typeset dt,
+  .md-content dt,
+  dl.rfc-dl > dt {
+    border-left-width: 3px;      /* keep accent visible */
+    padding-left: .5rem;
+  }
+}
